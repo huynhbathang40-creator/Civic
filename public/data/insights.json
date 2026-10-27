@@ -1,0 +1,143 @@
+{
+ "generatedAt": "2026-10-27T19:24:02.399Z",
+ "election": {
+  "id": "12000",
+  "name": "2026 General Midterm Election",
+  "electionDay": "2026-11-03"
+ },
+ "method": "Sites are the polling places, early-vote sites and drop boxes the Google Civic Information API lists for one sample address in each county (the county seat). Voters per site divides the county's citizen voting-age population (Census ACS 5-year, table B29001) by in-person sites (polling plus early vote).",
+ "counties": [
+  {
+   "fips": "06037",
+   "county": "Los Angeles County",
+   "state": "CA",
+   "hasData": true,
+   "pollingSites": 0,
+   "earlyVoteSites": 645,
+   "dropOffSites": 431,
+   "votingAgeCitizens": null,
+   "votersPerSite": null
+  },
+  {
+   "fips": "06073",
+   "county": "San Diego County",
+   "state": "CA",
+   "hasData": true,
+   "pollingSites": 0,
+   "earlyVoteSites": 221,
+   "dropOffSites": 154,
+   "votingAgeCitizens": null,
+   "votersPerSite": null
+  },
+  {
+   "fips": "06075",
+   "county": "San Francisco County",
+   "state": "CA",
+   "hasData": false,
+   "pollingSites": 0,
+   "earlyVoteSites": 0,
+   "dropOffSites": 0,
+   "votingAgeCitizens": null,
+   "votersPerSite": null
+  },
+  {
+   "fips": "06059",
+   "county": "Orange County",
+   "state": "CA",
+   "hasData": false,
+   "pollingSites": 0,
+   "earlyVoteSites": 0,
+   "dropOffSites": 0,
+   "votingAgeCitizens": null,
+   "votersPerSite": null
+  },
+  {
+   "fips": "48201",
+   "county": "Harris County",
+   "state": "TX",
+   "hasData": true,
+   "pollingSites": 622,
+   "earlyVoteSites": 75,
+   "dropOffSites": 0,
+   "votingAgeCitizens": null,
+   "votersPerSite": null
+  },
+  {
+   "fips": "48113",
+   "county": "Dallas County",
+   "state": "TX",
+   "hasData": false,
+   "pollingSites": 0,
+   "earlyVoteSites": 0,
+   "dropOffSites": 0,
+   "votingAgeCitizens": null,
+   "votersPerSite": null
+  },
+  {
+   "fips": "12086",
+   "county": "Miami-Dade County",
+   "state": "FL",
+   "hasData": false,
+   "pollingSites": 0,
+   "earlyVoteSites": 0,
+   "dropOffSites": 0,
+   "votingAgeCitizens": null,
+   "votersPerSite": null
+  },
+  {
+   "fips": "17031",
+   "county": "Cook County",
+   "state": "IL",
+   "hasData": false,
+   "pollingSites": 0,
+   "earlyVoteSites": 0,
+   "dropOffSites": 0,
+   "votingAgeCitizens": null,
+   "votersPerSite": null
+  },
+  {
+   "fips": "04013",
+   "county": "Maricopa County",
+   "state": "AZ",
+   "hasData": true,
+   "pollingSites": 254,
+   "earlyVoteSites": 151,
+   "dropOffSites": 273,
+   "votingAgeCitizens": null,
+   "votersPerSite": null
+  },
+  {
+   "fips": "36061",
+   "county": "New York County",
+   "state": "NY",
+   "hasData": false,
+   "pollingSites": 0,
+   "earlyVoteSites": 0,
+   "dropOffSites": 0,
+   "votingAgeCitizens": null,
+   "votersPerSite": null
+  },
+  {
+   "fips": "53033",
+   "county": "King County",
+   "state": "WA",
+   "hasData": false,
+   "pollingSites": 0,
+   "earlyVoteSites": 0,
+   "dropOffSites": 0,
+   "votingAgeCitizens": null,
+   "votersPerSite": null
+  },
+  {
+   "fips": "13121",
+   "county": "Fulton County",
+   "state": "GA",
+   "hasData": true,
+   "pollingSites": 0,
+   "earlyVoteSites": 33,
+   "dropOffSites": 7,
+   "votingAgeCitizens": null,
+   "votersPerSite": null
+  }
+ ]
+}

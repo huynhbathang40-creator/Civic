@@ -1,0 +1,14 @@
+[
+  { "fips": "06037", "county": "Los Angeles County", "state": "CA", "address": "500 W Temple St, Los Angeles, CA 90012" },
+  { "fips": "06073", "county": "San Diego County", "state": "CA", "address": "1600 Pacific Hwy, San Diego, CA 92101" },
+  { "fips": "06075", "county": "San Francisco County", "state": "CA", "address": "1 Dr Carlton B Goodlett Pl, San Francisco, CA 94102" },
+  { "fips": "06059", "county": "Orange County", "state": "CA", "address": "333 W Santa Ana Blvd, Santa Ana, CA 92701" },
+  { "fips": "48201", "county": "Harris County", "state": "TX", "address": "1001 Preston St, Houston, TX 77002" },
+  { "fips": "48113", "county": "Dallas County", "state": "TX", "address": "500 Elm St, Dallas, TX 75202" },
+  { "fips": "12086", "county": "Miami-Dade County", "state": "FL", "address": "111 NW 1st St, Miami, FL 33128" },
+  { "fips": "17031", "county": "Cook County", "state": "IL", "address": "118 N Clark St, Chicago, IL 60602" },
+  { "fips": "04013", "county": "Maricopa County", "state": "AZ", "address": "301 W Jefferson St, Phoenix, AZ 85003" },
+  { "fips": "36061", "county": "New York County", "state": "NY", "address": "1 Centre St, New York, NY 10007" },
+  { "fips": "53033", "county": "King County", "state": "WA", "address": "516 3rd Ave, Seattle, WA 98104" },
+  { "fips": "13121", "county": "Fulton County", "state": "GA", "address": "141 Pryor St SW, Atlanta, GA 30303" }
+]

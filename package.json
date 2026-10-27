@@ -1,0 +1,24 @@
+{
+  "name": "civic-voter-info",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "data": "node scripts/build-data.mjs",
+    "build": "node scripts/build-data.mjs && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.65.0",
+    "leaflet": "^1.9.4",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@netlify/functions": "^4.2.7",
+    "@netlify/vite-plugin": "^2.6.1",
+    "@vitejs/plugin-react": "^5.0.4",
+    "vite": "^7.1.7"
+  }
+}
