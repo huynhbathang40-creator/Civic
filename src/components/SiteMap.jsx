@@ -7,34 +7,17 @@ export const KINDS = {
   dropoff: { label: "Ballot drop-off", color: "#b8560b" },
 }
 
-// CARTO basemaps (OpenStreetMap data) need no API key, so no key reaches the
-// browser. If tiles keep failing we switch to the next provider. The list next
-// to the map carries the same information for keyboard and screen-reader users.
-const ATTRIBUTION =
-  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-const PROVIDERS = [
-  (dark) => ({
-    url: `https://{s}.basemaps.cartocdn.com/${dark ? "dark_all" : "rastertiles/voyager"}/{z}/{x}/{y}{r}.png`,
-    options: { subdomains: "abcd", maxZoom: 20, attribution: `${ATTRIBUTION} &copy; <a href="https://carto.com/attributions">CARTO</a>` },
-  }),
-  () => ({
-    url: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
-    options: { maxZoom: 19, attribution: ATTRIBUTION },
-  }),
-]
-
-function addTiles(map, dark, index = 0) {
-  const { url, options } = PROVIDERS[index](dark)
-  const tiles = L.tileLayer(url, options)
-  let errors = 0
-  tiles.on("tileerror", () => {
-    errors += 1
-    if (errors === 4 && index + 1 < PROVIDERS.length) {
-      map.removeLayer(tiles)
-      addTiles(map, dark, index + 1)
-    }
-  })
-  return tiles.addTo(map)
+// Standard OpenStreetMap tiles: no API key, so no key reaches the browser.
+// OSM's tile policy requires a Referer header, so the tile requests must not
+// use a no-referrer policy. Dark mode recolors the tiles with a CSS filter.
+// The list next to the map carries the same information for keyboard and
+// screen-reader users.
+function addTiles(map) {
+  return L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 19,
+    referrerPolicy: "strict-origin-when-cross-origin",
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  }).addTo(map)
 }
 
 export default function SiteMap({ origin, originApproximate, sites, selected, onSelect }) {
@@ -45,7 +28,7 @@ export default function SiteMap({ origin, originApproximate, sites, selected, on
 
   useEffect(() => {
     map.current = L.map(el.current, { scrollWheelZoom: false, keyboard: false })
-    addTiles(map.current, matchMedia("(prefers-color-scheme: dark)").matches)
+    addTiles(map.current)
     layer.current = L.layerGroup().addTo(map.current)
     return () => map.current.remove()
   }, [])

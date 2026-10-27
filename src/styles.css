@@ -144,6 +144,9 @@ label { font-weight: 600; }
 .chip .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--chip); }
 .map { height: 360px; border-radius: var(--radius); border: 1px solid var(--border); z-index: 0; background: var(--accent-soft); }
 @media (min-width: 700px) { .map { height: 440px; } }
+@media (prefers-color-scheme: dark) {
+  .map .leaflet-tile-pane { filter: invert(1) hue-rotate(180deg) brightness(0.9) contrast(0.9); }
+}
 .sites { list-style: none; padding: 0; display: grid; gap: 10px; }
 .site { display: flex; flex-direction: column; gap: 10px; }
 .site.selected { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
