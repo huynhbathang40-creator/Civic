@@ -6,7 +6,7 @@ export async function geocode(address: string): Promise<{ lat: number; lng: numb
   url.searchParams.set("benchmark", "Public_AR_Current")
   url.searchParams.set("format", "json")
   try {
-    const res = await fetch(url, { signal: AbortSignal.timeout(3500) })
+    const res = await fetch(url, { signal: AbortSignal.timeout(5000) })
     if (!res.ok) return null
     const data = await res.json()
     const c = data?.result?.addressMatches?.[0]?.coordinates

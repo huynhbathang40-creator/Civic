@@ -1,4 +1,4 @@
-# Ballot Ready (Civic)
+# Civic Compass (Civic)
 
 A mobile-first web app where a US voter enters their address once and gets everything for the next election:
 where to vote, a personal sample ballot, plain-language ballot measure explanations, reminders, their districts

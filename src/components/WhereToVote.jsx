@@ -52,7 +52,7 @@ export default function WhereToVote({ voter, setDemo }) {
               ) : null,
             )}
           </fieldset>
-          <SiteMap origin={v.origin} sites={visible} selected={selected} onSelect={setSelected} />
+          <SiteMap origin={v.origin} originApproximate={v.originApproximate} sites={visible} selected={selected} onSelect={setSelected} />
 
           {GROUPS.map(([kind, field, heading]) =>
             show[kind] && v[field].length ? (
@@ -67,7 +67,11 @@ export default function WhereToVote({ voter, setDemo }) {
                       <div>
                         <h3>{titleCase(s.name) || titleCase(s.address)}</h3>
                         <p>{titleCase(s.address)}</p>
-                        {s.distanceMiles != null && <p className="muted">{s.distanceMiles} miles away</p>}
+                        {s.distanceMiles != null && !(v.originApproximate && kind === "polling") && (
+                          <p className="muted">
+                            {s.distanceMiles} mi {v.originApproximate ? "from your polling place" : "away"}
+                          </p>
+                        )}
                         {s.hours && <p><strong>Hours:</strong> {s.hours}</p>}
                         {(s.startDate || s.endDate) && kind !== "polling" && (
                           <p>

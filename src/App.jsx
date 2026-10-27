@@ -39,7 +39,7 @@ export default function App() {
     }
     mainRef.current?.querySelector("h1")?.focus()
     document.querySelector('.tabs [aria-current="page"]')?.scrollIntoView({ block: "nearest", inline: "center" })
-    document.title = `${ROUTES[path]} · Ballot Ready`
+    document.title = `${ROUTES[path]} · Civic Compass`
   }, [path])
 
   const submitAddress = (value, useDemo) => {
@@ -66,9 +66,9 @@ export default function App() {
       <a className="skip" href="#main">Skip to content</a>
       <header className="site-header">
         <div className="wrap header-row">
-          <Link to="/" className="brand" aria-label="Ballot Ready home">
+          <Link to="/" className="brand" aria-label="Civic Compass home">
             <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" /><path d="M8 17l5 5 11-12" /></svg>
-            Ballot Ready
+            Civic Compass
           </Link>
           {address && (
             <button
@@ -118,7 +118,7 @@ export default function App() {
       <footer className="site-footer">
         <div className="wrap">
           <p>
-            Ballot Ready helps you prepare to vote. It does not register you, cast a ballot, or recommend candidates or
+            Civic Compass helps you prepare to vote. It does not register you, cast a ballot, or recommend candidates or
             positions. Always confirm details with your official election office.
           </p>
           <p>

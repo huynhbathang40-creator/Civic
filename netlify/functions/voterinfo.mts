@@ -111,16 +111,23 @@ export default async (req: Request) => {
   if (cached) return json(cached)
 
   try {
-    const [data, origin] = await Promise.all([
+    const [data, geocoded] = await Promise.all([
       civic("/voterinfo", { address, electionId, returnAllAvailableData: "true" }),
       geocode(address),
     ])
+    // If the address can't be geocoded, the voter's assigned polling place is
+    // a close stand-in for "near me" (only when there is exactly one).
+    const assigned = data.pollingLocations?.length === 1 ? data.pollingLocations[0] : null
+    const origin =
+      geocoded ??
+      (typeof assigned?.latitude === "number" ? { lat: assigned.latitude, lng: assigned.longitude } : null)
     const state = data.state?.[0]
     const result = {
       election: data.election ?? null,
       otherElections: data.otherElections ?? [],
       normalizedInput: data.normalizedInput ?? null,
       origin,
+      originApproximate: !geocoded && Boolean(origin),
       mailOnly: Boolean(data.mailOnly),
       precinctId: data.precinctId ?? null,
       counts: {

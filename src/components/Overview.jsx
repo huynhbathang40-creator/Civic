@@ -53,7 +53,7 @@ export default function Overview({ address, elections, voter, districts, officia
               <strong>{titleCase(nearest.name) || "Nearest site"}</strong>
               <br />
               {titleCase(nearest.address)}
-              {nearest.distanceMiles != null && ` · ${nearest.distanceMiles} mi`}
+              {nearest.distanceMiles != null && !v.originApproximate && ` · ${nearest.distanceMiles} mi`}
             </>
           ) : v ? (
             "No in-person sites listed for this address yet."

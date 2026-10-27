@@ -21,11 +21,11 @@ const fold = (line) => {
 }
 
 export function buildIcs(events) {
-  const lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Ballot Ready//Voter reminders//EN", "CALSCALE:GREGORIAN", "METHOD:PUBLISH"]
+  const lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Civic Compass//Voter reminders//EN", "CALSCALE:GREGORIAN", "METHOD:PUBLISH"]
   for (const e of events) {
     lines.push(
       "BEGIN:VEVENT",
-      `UID:${e.uid}@ballotready`,
+      `UID:${e.uid}@civiccompass`,
       `DTSTAMP:${stamp()}`,
       `DTSTART;VALUE=DATE:${ymd(e.date)}`,
       `DTEND;VALUE=DATE:${ymd(nextDay(e.endDate ?? e.date))}`,

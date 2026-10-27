@@ -88,7 +88,7 @@ export default function Reminders({ elections, voter }) {
       <section className="card" aria-labelledby="h-notify">
         <h2 id="h-notify">Browser reminders</h2>
         <p>
-          When this is on, opening Ballot Ready in the week before an election shows a reminder notification (once a
+          When this is on, opening Civic Compass in the week before an election shows a reminder notification (once a
           day). For reminders when the app is closed, use the calendar file above.
         </p>
         {permission === "unsupported" ? (

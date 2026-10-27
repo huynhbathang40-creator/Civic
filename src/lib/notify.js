@@ -15,7 +15,7 @@ export function useElectionNotifications(election) {
     save("lastNotified", today)
     const when = days === 0 ? "today" : days === 1 ? "tomorrow" : `in ${days} days`
     new Notification(`${election.name} is ${when}`, {
-      body: `Election Day: ${formatDate(election.electionDay)}. Check where you vote in Ballot Ready.`,
+      body: `Election Day: ${formatDate(election.electionDay)}. Check where you vote in Civic Compass.`,
       icon: "/favicon.svg",
       tag: `election-${election.id}`,
     })

@@ -1,5 +1,6 @@
 // Everything personal lives only in this browser. Storage can be blocked
 // (private mode, disabled site data), so every access is guarded.
+// The prefix predates the app's rename; keeping it preserves saved data.
 const PREFIX = "ballotready:"
 
 export function load(key, fallback = null) {

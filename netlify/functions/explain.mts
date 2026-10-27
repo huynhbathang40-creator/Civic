@@ -63,8 +63,8 @@ ${text}
       cache.set(key, result)
       return json(result)
     } catch (err: any) {
-      // Model not offered by the gateway: try the next one.
-      if (err?.status === 404 || err?.error?.error?.type === "not_found_error") continue
+      // Model not offered by the gateway or account: try the next one.
+      if (err?.status === 404 || (err?.status === 400 && /model/i.test(String(err?.message)))) continue
       if (err?.status === 429) return fail(429, "rate_limited", "Too many requests right now. Please try again in a minute.")
       return fail(502, "ai_error", "We couldn't generate a summary right now. The official text is shown below.")
     }
