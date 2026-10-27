@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react"
-import { directionsUrl, formatDate, titleCase } from "../lib/format.js"
+import { formatDate } from "../lib/format.js"
 import SiteMap, { KINDS } from "./SiteMap.jsx"
+import SiteCard from "./SiteCard.jsx"
 import { NoElectionData, OfficialSources, PageHeader } from "./common.jsx"
 
 const GROUPS = [
@@ -22,6 +23,8 @@ export default function WhereToVote({ voter, setDemo }) {
     [v],
   )
   const visible = useMemo(() => all.filter((s) => show[s.kind]), [all, show])
+
+  const year = Number(v?.election?.electionDay?.slice(0, 4)) || new Date().getFullYear()
 
   if (!v) return (<><PageHeader title="Where do I vote" /><NoElectionData voter={voter} setDemo={setDemo} /></>)
 
@@ -63,35 +66,19 @@ export default function WhereToVote({ voter, setDemo }) {
                 )}
                 <ul className="sites">
                   {all.filter((s) => s.kind === kind).map((s) => (
-                    <li key={s.key} className={`card site${selected === s.key ? " selected" : ""}`}>
-                      <div>
-                        <h3>{titleCase(s.name) || titleCase(s.address)}</h3>
-                        <p>{titleCase(s.address)}</p>
-                        {s.distanceMiles != null && !(v.originApproximate && kind === "polling") && (
-                          <p className="muted">
-                            {s.distanceMiles} mi {v.originApproximate ? "from your polling place" : "away"}
-                          </p>
-                        )}
-                        {s.hours && <p><strong>Hours:</strong> {s.hours}</p>}
-                        {(s.startDate || s.endDate) && kind !== "polling" && (
-                          <p>
-                            <strong>Open:</strong> {formatDate(s.startDate, { month: "short", day: "numeric" })}
-                            {s.endDate && s.endDate !== s.startDate ? ` – ${formatDate(s.endDate, { month: "short", day: "numeric" })}` : ""}
-                          </p>
-                        )}
-                        {s.notes && <p className="muted">{s.notes}</p>}
-                      </div>
-                      <div className="site-actions">
-                        <a className="button primary" href={directionsUrl(s.address)} target="_blank" rel="noopener noreferrer">
-                          Directions<span className="sr-only"> to {s.name || s.address} (opens Google Maps)</span>
-                        </a>
-                        {s.lat != null && (
-                          <button className="secondary" onClick={() => setSelected(s.key)}>
-                            Show on map
-                          </button>
-                        )}
-                      </div>
-                    </li>
+                    <SiteCard
+                      key={s.key}
+                      site={s}
+                      kind={kind}
+                      year={year}
+                      selected={selected === s.key}
+                      onShow={() => setSelected(s.key)}
+                      distanceLabel={
+                        s.distanceMiles != null && !(v.originApproximate && kind === "polling")
+                          ? `${s.distanceMiles} mi ${v.originApproximate ? "from your polling place" : "away"}`
+                          : null
+                      }
+                    />
                   ))}
                 </ul>
               </section>
